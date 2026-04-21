@@ -14,7 +14,9 @@
 
         Admin Products
       </span>
+
     </div>
+
     <ul class="mt-2">
       @for (menuItem of menu; track $index) {
       <li [routerLink]="menuItem.route" routerLinkActive="bg-slate-500 text-white"
@@ -22,6 +24,12 @@
         {{menuItem.label}}</li>
       }
     </ul>
+    <button type="button" (click)="logout()"
+      class="p-2 w-full mt-20 bg-red-500 text-white hover:text-red-500 hover:bg-white  text-center cursor-pointer border rounded-sm font-bold  transition-all ease-in-out .5s">Cerrar
+      Sesion</button>
+
+
+
     <!-- tu sidebar aquí -->
   </aside>
 

@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { User } from '../../../features/auth/interfaces';
 import { Auth } from '../../../features/auth/service/auth';
 import { Menu } from '../../interface/shared.interface';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { SharedModule } from '../../shared-module';
 
 
@@ -16,6 +16,7 @@ import { SharedModule } from '../../shared-module';
 export class Sidebar {
 
   private readonly auth = inject(Auth);
+  private readonly router = inject(Router);
   public activeRoute: string = '/dashboard/productos'
   public readonly menu: Menu[] = [
     {
@@ -37,6 +38,9 @@ export class Sidebar {
   }
 
   logout() {
-    console.log('Cerrar sesión');
+    localStorage.removeItem('access_token')
+    localStorage.removeItem('refresh_token')
+    localStorage.removeItem('user')
+    this.router.navigate(['/auth/login']);
   }
 }

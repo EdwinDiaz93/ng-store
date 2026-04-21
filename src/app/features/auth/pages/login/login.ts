@@ -26,8 +26,8 @@ export class Login implements OnInit {
   private readonly router = inject(Router);
 
   public loginForm: FormGroup = this.formBuiler.group({
-    username: ['', [Validators.required, Validators.minLength(5)]],
-    password: ['', [Validators.required, Validators.minLength(8)]]
+    username: ['emilys', [Validators.required, Validators.minLength(5)]],
+    password: ['emilyspass', [Validators.required, Validators.minLength(8)]]
   })
 
   ngOnInit(): void {

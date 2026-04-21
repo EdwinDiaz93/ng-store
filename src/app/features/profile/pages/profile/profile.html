@@ -1,23 +1,22 @@
+<h2 class="text-3xl">Mi Perfil</h2>
 
-  <h2 class="text-3xl">Mi Perfil</h2>
+@if (user) {
+<div class="w-1/2 border border-slate-200 rounded-sm p-2 mt-2">
+  <div class="flex flex-row  items-center">
+    <img [src]="user.image" [alt]="user.firstName" class="rounded-full">
+    <div class="flex flex-col ml-10">
+      <h2 class="text-2xl font-bold">{{user.firstName}} {{user.lastName}}</h2>
+      <p class="text-xl">{{user.address.city}}</p>
+      <p class="text-xl text-slate-400">Edad:<span>{{user.age}}</span></p>
+      <p class="text-xl text-slate-400">correo:<span>{{user.email}}</span></p>
 
-  @if (user) {
-  <div class="w-1/2 border border-slate-200 rounded-sm p-2 mt-2">
-    <div class="flex flex-row  items-center">
-      <img [src]="user.image" [alt]="user.firstName" class="rounded-full">
-      <div class="flex flex-col ml-10">
-        <h2 class="text-2xl font-bold">{{user.firstName}} {{user.lastName}}</h2>
-        <p class="text-xl">{{user.address.city}}</p>
-        <p class="text-xl text-slate-400">{{user.address.country}},{{user.address.state}}</p>
-
-      </div>
     </div>
   </div>
-  }
+</div>
+}
 
-  <h2 class="text-3xl mt-5">Informacion Personal</h2>
+<h2 class="text-3xl mt-5">Informacion Personal</h2>
 
-  <div class="w-full border border-slate-200 rounded-sm p-2 mt-2">
+<div class="w-full border border-slate-200 rounded-sm p-2 mt-2">
 
-  </div>
-
+</div>

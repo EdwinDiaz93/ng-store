@@ -1,11 +1,12 @@
 import { Routes } from '@angular/router';
+import { Profile } from './pages/profile/profile';
 
 
 
 export const profileRoutes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./pages/profile/profile').then(c => c.Profile),
+    component:Profile
   }
 
 
