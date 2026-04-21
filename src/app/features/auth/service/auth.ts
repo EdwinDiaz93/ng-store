@@ -3,7 +3,8 @@ import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { LoginRequest, LoginResponse, User, UserResponse } from '../interfaces';
 import { Router } from '@angular/router';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, finalize, Observable, throwError } from 'rxjs';
+import { Loading } from '../../../shared/services/loading';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class Auth {
   private readonly baseUrl = environment.baseUrl;
   private readonly router = inject(Router);
   private readonly httpClient = inject(HttpClient);
-
+  private readonly loader = inject(Loading);
 
   login(request: LoginRequest) {
     return this.httpClient.post<any>(`${this.baseUrl}/auth/login`, request);
@@ -32,6 +33,7 @@ export class Auth {
   }
 
   getUserInfo(): Observable<UserResponse> {
+    this.loader.showSpinner();
     const token = localStorage.getItem('access_token');
 
     return this.httpClient.get<UserResponse>(`${this.baseUrl}/user/me`, { headers: { Authorization: `Bearer ${token}` } })
@@ -43,7 +45,8 @@ export class Auth {
             localStorage.removeItem('user')
           }
           return throwError(() => err);
-        })
+        }),
+        finalize(() => this.loader.hideSprinner())
       );
   }
 

@@ -1,0 +1,50 @@
+.overlay {
+  /* 1. Posicionamiento fijo para que no se mueva al hacer scroll */
+  position: fixed;
+
+  /* 2. Cubrir toda la pantalla */
+  top: 0;
+  left: 0;
+  width: 100vw;   /* 100% del ancho del visor */
+  height: 100vh;  /* 100% del alto del visor */
+
+  /* 3. Fondo con opacidad (el cuarto valor 0.5 es la transparencia) */
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /* 4. Centrar el loader horizontal y verticalmente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 5. Asegurar que esté por encima de todo (botones, inputs, etc) */
+  z-index: 99999;
+
+  /* 6. Evitar que el usuario haga clic en lo que hay detrás */
+  pointer-events: all;
+}
+.loader {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  --c:no-repeat linear-gradient(#25b09b 0 0);
+  background:
+    var(--c) center/100% 10px,
+    var(--c) center/10px 100%;
+}
+.loader:before {
+  content:'';
+  position: absolute;
+  inset: 0;
+  background:
+    var(--c) 0    0,
+    var(--c) 100% 0,
+    var(--c) 0    100%,
+    var(--c) 100% 100%;
+  background-size: 15.5px 15.5px;
+  animation: l16 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
+@keyframes l16 {
+   33%  {inset:-10px;transform: rotate(0deg)}
+   66%  {inset:-10px;transform: rotate(90deg)}
+   100% {inset:0    ;transform: rotate(90deg)}
+}

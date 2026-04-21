@@ -60,3 +60,10 @@ export interface Review {
   reviewerName:  string;
   reviewerEmail: string;
 }
+
+export interface productRequest{
+  title:string;
+  description:string;
+  price:number;
+  stock:number;
+}

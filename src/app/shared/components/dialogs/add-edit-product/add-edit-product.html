@@ -1,0 +1,51 @@
+<app-dialog-wrapper (onCloseEvent)="onClose()" primaryButtonTitle="Guardar" (onPrimaryButtonClick)="save()"
+  title="Agregar Producto">
+
+  <form  [formGroup]="productForm" class="flex flex-col w-full mt-3">
+    <mat-form-field appearance="outline" class="w-full mt-3">
+      <mat-label>
+        Title
+      </mat-label>
+      <input matInput formControlName="title" />
+      @if (isValidField(productForm,'title')) {
+      <mat-error>
+        {{getFieldErrors(productForm,'title')}}
+      </mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full mt-3">
+      <mat-label>
+        Description
+      </mat-label>
+      <input matInput formControlName="description" />
+      @if (isValidField(productForm,'description')) {
+      <mat-error>
+        {{getFieldErrors(productForm,'description')}}
+      </mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full mt-3">
+      <mat-label>
+        Price
+      </mat-label>
+      <input matInput type="number" formControlName="price" />
+      @if (isValidField(productForm,'price')) {
+      <mat-error>
+        {{getFieldErrors(productForm,'price')}}
+      </mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full mt-3">
+      <mat-label>
+        Stock
+      </mat-label>
+      <input matInput type="number" formControlName="stock" />
+      @if (isValidField(productForm,'stock')) {
+      <mat-error>
+        {{getFieldErrors(productForm,'stock')}}
+      </mat-error>
+      }
+    </mat-form-field>
+  </form>
+
+</app-dialog-wrapper>

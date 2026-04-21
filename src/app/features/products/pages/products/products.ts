@@ -1,8 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
-
+import Swal from 'sweetalert2'
 import { Product as ProductService } from '../../services/product';
 import { Product } from '../../interfaces';
 import { SharedModule } from '../../../../shared/shared-module';
+import { MatDialog } from '@angular/material/dialog';
+import { AddEditProduct } from '../../../../shared/components';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +17,10 @@ import { SharedModule } from '../../../../shared/shared-module';
 })
 export class Products implements OnInit {
 
+
+  private router = inject(Router);
   private readonly product = inject(ProductService);
+  private readonly matDialog = inject(MatDialog);
 
   public products: Product[] = [];
   public currentPage = 1;
@@ -37,6 +43,20 @@ export class Products implements OnInit {
     this.currentPage = page;
     const offset = (this.currentPage - 1) * this.itemsPerPage;
     this.geProductos(offset, 5);
+  }
+
+  openProductModal() {
+    this.matDialog.open(AddEditProduct, {
+      width: '50%',
+      height: 'auto',
+      disableClose: true,
+    }).afterClosed().subscribe((result) => {
+
+    })
+  }
+
+  viewDetial(id: number) {
+    this.router.navigateByUrl(`/dashboard/productos/${id}`);
   }
 
 }

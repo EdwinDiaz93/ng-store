@@ -1,10 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SharedModule } from './shared/shared-module';
+
+import { Loading } from './shared/services/loading';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
-  templateUrl: './app.html'
+  templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class App {}
+export class App {
+  public readonly loading = inject(Loading);
+
+
+
+}

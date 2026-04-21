@@ -1,0 +1,70 @@
+
+<button (click)="returnBack()"
+  class="p-2 text-center cursor-pointer border rounded-sm font-bold  transition-all ease-in-out .5s">Regresar a la lista</button>
+<div class="min-h-screen bg-slate-100 p-6">
+
+  <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-6">
+
+    <!-- Header -->
+    <div class="flex justify-between items-start mb-6">
+      <div>
+        <h1 class="text-2xl font-bold text-slate-800">
+          {{ producto.title }}
+        </h1>
+        <p class="text-sm text-slate-500">
+          SKU: {{ producto.sku }}
+        </p>
+      </div>
+
+      <span class="px-3 py-1 text-sm rounded-full bg-green-100 text-green-600">
+        {{ producto.brand }}
+      </span>
+    </div>
+
+    <!-- Content -->
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Imagen -->
+      <div class="flex justify-center items-center bg-slate-50 rounded-xl p-4">
+        <img [src]="producto.thumbnail || 'https://via.placeholder.com/300'"
+          class="rounded-xl max-h-[300px] object-contain" />
+      </div>
+
+      <!-- Info -->
+      <div class="flex flex-col gap-4">
+
+        <div>
+          <p class="text-sm text-slate-500">Precio</p>
+          <p class="text-2xl font-bold text-blue-600">
+            $ {{ producto.price }}
+          </p>
+        </div>
+
+        <div>
+          <p class="text-sm text-slate-500">Categoría</p>
+          <p class="text-base font-medium">
+            {{ producto.category }}
+          </p>
+        </div>
+
+        <div>
+          <p class="text-sm text-slate-500">Stock</p>
+          <p class="text-base font-medium">
+            {{ producto.stock }}
+          </p>
+        </div>
+
+        <div>
+          <p class="text-sm text-slate-500">Descripción</p>
+          <p class="text-sm text-slate-700 leading-relaxed">
+            {{ producto.description }}
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

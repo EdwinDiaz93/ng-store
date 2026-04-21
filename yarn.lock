@@ -4111,6 +4111,11 @@ strip-ansi@^7.1.0, strip-ansi@^7.1.2:
   dependencies:
     ansi-regex "^6.2.2"
 
+sweetalert2@^11.26.24:
+  version "11.26.24"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-11.26.24.tgz#25e5ba2b3e6725cec71acddd31832cefe61c8263"
+  integrity sha512-SLgukW4wicewpW5VOukSXY5Z6DL/z7HCOK2ODSjmQPiSphCN8gJAmh9npoceXOtBRNoDN0xIz+zHYthtfiHmjg==
+
 symbol-tree@^3.2.4:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
@@ -4467,3 +4472,8 @@ zod@4.3.6, "zod@^3.25 || ^4.0":
   version "4.3.6"
   resolved "https://registry.yarnpkg.com/zod/-/zod-4.3.6.tgz#89c56e0aa7d2b05107d894412227087885ab112a"
   integrity sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==
+
+zone.js@^0.16.1:
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.16.1.tgz#ca91f0889e46b1c252aab6c75332e36840916227"
+  integrity sha512-dpvY17vxYIW3+bNrP0ClUlaiY0CiIRK3tnoLaGoQsQcY9/I/NpzIWQ7tQNhbV7LacQMpCII6wVzuL3tuWOyfuA==

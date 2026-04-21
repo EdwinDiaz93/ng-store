@@ -25,6 +25,9 @@ export class Utils {
         case 'email':
           errors.push(`El campo ${field} debe ser un correo valido`);
           break;
+        case 'min':
+          errors.push(`El campo ${field} debe ser un digito de almenos ${form.get(field)?.errors![key].min}`);
+          break;
         case 'minlength':
           errors.push(`El campo ${field} debe contener minimo ${form.get(field)?.errors![key].requiredLength} caracteres`)
           break;
