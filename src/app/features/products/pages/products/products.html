@@ -1,4 +1,82 @@
+<h2 class="text-2xl font-bold">Lista de productos</h2>
 
 
-  <p>products works!</p>
 
+<div
+  class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default mt-2 border-slate-200">
+  <table class="w-full text-sm text-left rtl:text-right text-body">
+    <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
+      <tr class="bg-neutral-primary border-b border-default  bg-slate-500 text-white font-bold border-slate-200">
+        <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
+          Title
+        </th>
+        <th class="px-6 py-4">
+          Description
+        </th>
+        <th class="px-6 py-4">
+          Brand
+        </th>
+        <th class="px-6 py-4">
+          Category
+        </th>
+        <th class="px-6 py-4">
+          Stock
+        </th>
+        <th class="px-6 py-4">
+          Price
+        </th>
+        <th class="px-6 py-4">
+          Tags
+        </th>
+        <th class="px-6 py-4">
+          Image
+        </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of products| paginate: { id: 'products',
+      itemsPerPage,
+      currentPage,
+      totalItems}; track $index) {
+      <tr class="bg-neutral-primary border-b border-default">
+        <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
+          {{product.title}}
+        </th>
+        <td class="px-6 py-4">
+          {{product.description}}
+        </td>
+        <td class="px-6 py-4">
+          {{product.brand}}
+        </td>
+        <td class="px-6 py-4">
+          {{product.category}}
+        </td>
+        <td class="px-6 py-4">
+          {{product.stock}}
+        </td>
+        <td class="px-6 py-4">
+          {{product.price|currency}}
+        </td>
+        <td class="px-6 py-4">
+          {{product.tags.toString()}}
+        </td>
+        <td class="px-6 py-4">
+          <img class="w-25" [src]="product.thumbnail" [alt]="product.title">
+        </td>
+
+      </tr>
+      }
+
+
+    </tbody>
+  </table>
+  <div class="flex flex-row justify-center mt-5">
+    <pagination-controls id="products" (pageChange)="changePage($event)" (pageBoundsCorrection)="changePage($event)"
+      [maxSize]="9" [directionLinks]="true" [autoHide]="true" [responsive]="true" previousLabel="Previous"
+      nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+      screenReaderCurrentLabel="You're on page"></pagination-controls>
+  </div>
+
+
+</div>

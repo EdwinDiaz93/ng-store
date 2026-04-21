@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-
+import moment from 'moment';
 @Injectable({
   providedIn: 'root',
 })
@@ -31,9 +31,11 @@ export class Utils {
 
       }
     }
-
-
     return errors;
+  }
+
+  getFormattedDate(date: string) {
+    return moment(date).format('DD/MM/YYYY');
   }
 
 }

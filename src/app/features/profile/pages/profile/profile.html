@@ -4,7 +4,7 @@
 <div class="w-1/2 border border-slate-200 rounded-sm p-2 mt-2">
   <div class="flex flex-row  items-center">
     <img [src]="user.image" [alt]="user.firstName" class="rounded-full">
-    <div class="flex flex-col ml-10">
+    <div class="grid grid-cols-1 ml-10">
       <h2 class="text-2xl font-bold">{{user.firstName}} {{user.lastName}}</h2>
       <p class="text-xl">{{user.address.city}}</p>
       <p class="text-xl text-slate-400">Edad:<span>{{user.age}}</span></p>
@@ -18,5 +18,99 @@
 <h2 class="text-3xl mt-5">Informacion Personal</h2>
 
 <div class="w-full border border-slate-200 rounded-sm p-2 mt-2">
+  <div class="grid grid-cols-4 gap-2">
+    <div>
+      <p class="font-bold">Primer Nombre:</p>
+      <p class="text-slate-500">{{user.firstName}}</p>
+    </div>
+    <div>
+      <p class="font-bold">Segundo Nombre:</p>
+      <p class="text-slate-500">{{user.lastName}}</p>
+    </div>
+    <div>
+      <p class="font-bold">Genero:</p>
+      <p class="text-slate-500">{{user.gender}}</p>
+    </div>
+    <div>
+      <p class="font-bold">Altura:</p>
+      <p class="text-slate-500">{{user.height}} cm</p>
+    </div>
+    <div>
+      <p class="font-bold">Fecha Nacimiento:</p>
+      <p class="text-slate-500">{{getFormattedDate(user.birthDate)}} </p>
+    </div>
+    <div>
+      <p class="font-bold">Telefono:</p>
+      <p class="text-slate-500">{{user.phone}} </p>
+    </div>
+    <div>
+      <p class="font-bold">SSN</p>
+      <p class="text-slate-500">{{user.ssn}} </p>
+    </div>
+    <div>
+      <p class="font-bold">Color De Ojos:</p>
+      <p class="text-slate-500">{{user.eyeColor}} </p>
+    </div>
+  </div>
+</div>
 
+<h2 class="text-3xl mt-5">Informacion De Direccion</h2>
+
+<div class="w-full border border-slate-200 rounded-sm p-2 mt-2">
+  <div class="grid grid-cols-4 gap-2">
+    <div>
+      <p class="font-bold">Pais:</p>
+      <p class="text-slate-500">{{user.address.country}}</p>
+    </div>
+    <div>
+      <p class="font-bold">Estado/Provincia/Municipio:</p>
+      <p class="text-slate-500">{{user.address.state}}</p>
+    </div>
+    <div>
+      <p class="font-bold">Ciudad:</p>
+      <p class="text-slate-500">{{user.address.city}}</p>
+    </div>
+    <div>
+      <p class="font-bold">Codigo Postal:</p>
+      <p class="text-slate-500">{{user.address.postalCode}}</p>
+    </div>
+
+  </div>
+</div>
+
+<h2 class="text-3xl mt-5">Informacion Laboral</h2>
+
+<div class="w-full border border-slate-200 rounded-sm p-2 mt-2">
+  <div class="grid grid-cols-4 gap-2">
+    <div>
+      <p class="font-bold">Compañia:</p>
+      <p class="text-slate-500">{{user.company.name}}</p>
+    </div>
+    <div>
+      <p class="font-bold">Departamento:</p>
+      <p class="text-slate-500">{{user.company.department}}</p>
+    </div>
+    <div>
+      <p class="font-bold">Titulo:</p>
+      <p class="text-slate-500">{{user.company.title}}</p>
+    </div>
+
+    <div>
+      <p class="font-bold">Pais:</p>
+      <p class="text-slate-500">{{user.company.address.country}}</p>
+    </div>
+    <div>
+      <p class="font-bold">Estado/Provincia/Municipio:</p>
+      <p class="text-slate-500">{{user.company.address.state}}</p>
+    </div>
+    <div>
+      <p class="font-bold">Ciudad:</p>
+      <p class="text-slate-500">{{user.company.address.city}}</p>
+    </div>
+    <div>
+      <p class="font-bold">Codigo Postal:</p>
+      <p class="text-slate-500">{{user.company.address.postalCode}}</p>
+    </div>
+
+  </div>
 </div>

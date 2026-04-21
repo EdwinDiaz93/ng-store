@@ -1,13 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+
+import { Product as ProductService } from '../../services/product';
+import { Product } from '../../interfaces';
+import { SharedModule } from '../../../../shared/shared-module';
 
 
 @Component({
   selector: 'app-products',
-  imports: [],
-  standalone:true,
+  imports: [SharedModule],
+  standalone: true,
   templateUrl: './products.html',
   styleUrl: './products.css',
 })
-export class Products {
+export class Products implements OnInit {
+
+  private readonly product = inject(ProductService);
+
+  public products: Product[] = [];
+  public currentPage = 1;
+  public totalItems = 1000;
+  public itemsPerPage = 5;
+  ngOnInit(): void {
+    this.geProductos(0, 5);
+  }
+
+  geProductos(offset: number = 5, limit: number = 5) {
+    this.product.getProductos(offset, limit).subscribe((response) => {
+      this.products = response.products;
+      this.totalItems = response.total;
+    });
+  }
+
+  changePage(page: number) {
+
+
+    this.currentPage = page;
+    const offset = (this.currentPage - 1) * this.itemsPerPage;
+    this.geProductos(offset, 5);
+  }
 
 }
